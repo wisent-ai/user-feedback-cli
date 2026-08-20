@@ -1,0 +1,15 @@
+[automation]
+managed = true
+source_fingerprint = "b7403a92efb7b158"
+category = "developer"
+
+[banner]
+title = "User Feedback CLI builds. You ship faster."
+description = "Evidence-preserving user feedback normalization and prioritization CLI"
+product = "Wisent"
+url = "wisent.com"
+theme = "dark"
+layout = "signal-left"
+art_seed = "user-feedback-cli"
+width = 1584
+height = 396
