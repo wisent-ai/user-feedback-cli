@@ -8,6 +8,9 @@ use chrono::{DateTime, SecondsFormat, Utc};
 
 use super::Feedback;
 
+/// Severity is scored on a five-point scale.
+const MAX_SEVERITY: f64 = 5.0;
+
 pub(crate) fn required(value: &str, label: &str) -> Result<String> {
     let normalized = value.split_whitespace().collect::<Vec<_>>().join(" ");
     if normalized.is_empty() {
@@ -67,8 +70,8 @@ pub fn normalize_feedback(mut feedback: Feedback) -> Result<Feedback> {
     )?;
     feedback.signals.severity =
         non_negative(feedback.signals.severity, "feedback.signals.severity")?;
-    if feedback.signals.severity > 5.0 {
-        bail!("feedback.signals.severity must be between 0 and 5");
+    if feedback.signals.severity > MAX_SEVERITY {
+        bail!("feedback.signals.severity must be between 0 and {MAX_SEVERITY}");
     }
     feedback.signals.revenue_impact = non_negative(
         feedback.signals.revenue_impact,
