@@ -9,3 +9,20 @@
 <!-- wisent-readme-signals:end -->
 
 # user-feedback-cli
+
+Evidence-preserving normalization and prioritization of user feedback. The
+submitted text is kept as written and ranking uses only explicit numeric
+signals. Every command prints JSON, or with `--text` one `path: value` line
+per field from the same document.
+
+| Command | What it prints |
+|---|---|
+| `user-feedback normalize --feedback <record.json>` | the record in canonical form |
+| `user-feedback dedupe --feedback <records.json>` | the records grouped by what they report |
+| `user-feedback summarize --feedback <records.json>` | counts of the records by their fields |
+| `user-feedback rank --feedback <records.json> [--policy <policy.json>]` | the records ordered by their weighted signals; built-in weights without `--policy` |
+
+`--help` works on the program and on every command. Exit 2: the invocation
+is wrong (unknown command or flag, missing argument); exit 1: an input file
+could not be read, is not valid JSON, or was refused, with the reason on
+stderr.
