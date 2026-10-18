@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "product": "user-feedback-cli",
+  "releases": false,
+  "reason": "No release is published: the repository has no tag, workflow, package, image or binary publisher, and the CLI is built from its checkout."
+}
